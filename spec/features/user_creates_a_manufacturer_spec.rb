@@ -15,9 +15,11 @@ feature "Create a Manufacturer", %q(
 
 ) do
 
-  scenario "user inputs a manufacturer" do
+  before(:each) do
     visit new_manufacturer_path
+  end
 
+  scenario "user inputs a manufacturer" do
     fill_in "Name", with: "Mazda"
     fill_in "Country", with: "Japan"
     click_button "Create Manufacturer"
@@ -27,8 +29,6 @@ feature "Create a Manufacturer", %q(
   end
 
   scenario "user is given errors if they forget fields" do
-    visit new_manufacturer_path
-
     click_button "Create Manufacturer"
 
     expect(page).to have_content("Name can't be blank")
@@ -41,8 +41,6 @@ feature "Create a Manufacturer", %q(
       name: "Mazda",
       country: "Japan"
     )
-
-    visit new_manufacturer_path
 
     fill_in "Name", with: "Mazda"
     fill_in "Country", with: "Japan"
