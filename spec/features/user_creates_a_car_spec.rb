@@ -23,11 +23,11 @@ feature "List a Car", %q(
   end
 
   scenario "user submits a valid car" do
-    visit manufacturer_path(manufacturer)
+    visit new_car_path
 
     select "Manufacturer", with: "Mazda"
-    fill_in "Color", with: "Black"
     fill_in "Year", with: "2000"
+    fill_in "Color", with: "Black"
     fill_in "Mileage", with: "132000"
     # fill_in "Description", with: "Rest assured, once you take this Mazda Protege home you will know you've made a solid investment."
     click_button "Create New Car Listing"
@@ -36,7 +36,7 @@ feature "List a Car", %q(
   end
 
   scenario "user submits empty form" do
-    # visit manufacturer_path(manufacturer)
+    # visit new_car_path
 
     # click_button "Create New Car Listing"
 
