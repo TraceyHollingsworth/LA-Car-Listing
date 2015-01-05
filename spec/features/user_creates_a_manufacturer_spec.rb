@@ -24,23 +24,14 @@ feature "Create a Manufacturer", %q(
     expect(page).to have_content("New Manufacturer Created!")
   end
 
-  scenario "user is given error if they forget to provide manufacturer name" do
+  scenario "user is given errors if they forget fields" do
     visit new_manufacturer_path
 
-    fill_in "Country", with: "Japan"
     click_button "Create Manufacturer"
 
     expect(page).to have_content("Name can't be blank")
-  end
-
-  scenario "user is given error if they forget to provide manufacturer country" do
-    visit new_manufacturer_path
-
-    fill_in "Name", with: "Mazda"
-    click_button "Create Manufacturer"
-
     expect(page).to have_content("Country can't be blank")
-  end
 
+  end
 end
 
