@@ -1,9 +1,9 @@
 <h1>Car Manufacturers</h1>
-<%= link_to 'Add A New Manufacturer', new_manufacturer_path %>
-<%= link_to 'Add A New Car' %><br>
+<%= link_to 'Add A New Manufacturer', new_manufacturer_path %><br>
+<%= link_to 'Add A New Car', new_car_path %><br>
 
 <ul>
   <% @manufacturers.each do |manufacturer| %>
-    <li><%= link_to manufacturer.name, manufacturer_path(manufacturer) %>: <%= manufacturer.country %></li>
+    <li><%= link_to manufacturer.name %>: <%= manufacturer.country %></li>
   <% end %>
 </ul>
